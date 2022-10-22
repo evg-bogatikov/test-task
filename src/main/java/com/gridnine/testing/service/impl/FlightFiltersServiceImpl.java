@@ -11,6 +11,7 @@ public class FlightFiltersServiceImpl implements FlightFiltersService {
 
     private final List<Predicate<Flight>> flightFilterServices = new ArrayList<>();
 
+    @Override
     public boolean filter(Flight flight) {
         for (Predicate<Flight> flightFilterService :
                 flightFilterServices) {

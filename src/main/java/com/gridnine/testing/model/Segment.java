@@ -13,7 +13,7 @@ public class Segment {
 
     private final LocalDateTime arrivalDate;
 
-    Segment(final LocalDateTime dep, final LocalDateTime arr) {
+    public Segment(final LocalDateTime dep, final LocalDateTime arr) {
         departureDate = Objects.requireNonNull(dep);
         arrivalDate = Objects.requireNonNull(arr);
     }
@@ -24,6 +24,20 @@ public class Segment {
 
     public LocalDateTime getArrivalDate() {
         return arrivalDate;
+    }
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Segment segment = (Segment) o;
+        return departureDate.equals(segment.departureDate) && arrivalDate.equals(segment.arrivalDate);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(departureDate, arrivalDate);
     }
 
     @Override
